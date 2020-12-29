@@ -20,9 +20,14 @@ type (
 		Devel() bool
 	}
 
+	// Config AFAIRE.
+	Config interface {
+	}
+
 	// Components AFAIRE.
 	Components struct {
 		Application Application
+		Config      Config
 	}
 )
 
