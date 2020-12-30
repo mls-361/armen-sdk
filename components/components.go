@@ -24,10 +24,17 @@ type (
 	Config interface {
 	}
 
+	// Crypto AFAIRE.
+	Crypto interface {
+		EncryptString(s string) (string, error)
+		DecryptString(s string) (string, error)
+	}
+
 	// Components AFAIRE.
 	Components struct {
 		Application Application
 		Config      Config
+		Crypto      Crypto
 	}
 )
 
