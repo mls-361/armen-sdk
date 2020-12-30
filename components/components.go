@@ -17,7 +17,7 @@ type (
 		BuiltAt() time.Time
 		StartedAt() time.Time
 		Host() string
-		Devel() bool
+		Devel() int
 	}
 
 	// Config AFAIRE.
