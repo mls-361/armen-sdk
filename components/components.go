@@ -12,6 +12,8 @@ import (
 
 	"github.com/mls-361/datamap"
 	"github.com/mls-361/logger"
+
+	"github.com/mls-361/armen-sdk/message"
 )
 
 type (
@@ -24,6 +26,12 @@ type (
 		StartedAt() time.Time
 		Host() string
 		Devel() int
+	}
+
+	// Bus AFAIRE.
+	Bus interface {
+		AddPublisher(name string, chCapacity, nbConsumer int) chan<- *message.Message
+		Subscribe(callback func(*message.Message), regexpList ...string) error
 	}
 
 	// Config AFAIRE.
@@ -56,6 +64,7 @@ type (
 	// Components AFAIRE.
 	Components struct {
 		Application Application
+		Bus         Bus
 		Config      Config
 		Crypto      Crypto
 		Logger      Logger
