@@ -10,6 +10,7 @@ import (
 	"log"
 	"time"
 
+	"github.com/mls-361/datamap"
 	"github.com/mls-361/logger"
 )
 
@@ -27,6 +28,8 @@ type (
 
 	// Config AFAIRE.
 	Config interface {
+		Data() datamap.DataMap
+		Decode(to interface{}, mustExist bool, keys ...string) error
 	}
 
 	// Crypto AFAIRE.
@@ -45,7 +48,7 @@ type (
 		Error(msg string, data ...interface{})
 		Fatal(msg string, data ...interface{})
 		SetLevel(level string)
-		CreateLogger(id, name string) *logger.Logger // BOF
+		CreateLogger(id, name string) *logger.Logger // BOF?
 		RemoveLogger(id string)
 		NewStdLogger(level, prefix string, flag int) *log.Logger
 	}
