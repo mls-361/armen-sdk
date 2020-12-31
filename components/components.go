@@ -9,6 +9,8 @@ package components
 import (
 	"log"
 	"time"
+
+	"github.com/mls-361/logger"
 )
 
 type (
@@ -43,7 +45,7 @@ type (
 		Error(msg string, data ...interface{})
 		Fatal(msg string, data ...interface{})
 		SetLevel(level string)
-		CreateLogger(id, name string) Logger
+		CreateLogger(id, name string) *logger.Logger // BOF
 		RemoveLogger(id string)
 		NewStdLogger(level, prefix string, flag int) *log.Logger
 	}
