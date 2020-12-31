@@ -6,7 +6,10 @@
 
 package components
 
-import "time"
+import (
+	"log"
+	"time"
+)
 
 type (
 	// Application AFAIRE.
@@ -30,11 +33,27 @@ type (
 		DecryptString(s string) (string, error)
 	}
 
+	// Logger AFAIRE.
+	Logger interface {
+		Trace(msg string, data ...interface{})
+		Debug(msg string, data ...interface{})
+		Info(msg string, data ...interface{})
+		Notice(msg string, data ...interface{})
+		Warning(msg string, data ...interface{})
+		Error(msg string, data ...interface{})
+		Fatal(msg string, data ...interface{})
+		SetLevel(level string)
+		CreateLogger(id, name string) Logger
+		RemoveLogger(id string)
+		NewStdLogger(level, prefix string, flag int) *log.Logger
+	}
+
 	// Components AFAIRE.
 	Components struct {
 		Application Application
 		Config      Config
 		Crypto      Crypto
+		Logger      Logger
 	}
 )
 
