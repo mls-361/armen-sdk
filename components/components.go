@@ -83,6 +83,8 @@ type (
 	// Server AFAIRE.
 	Server interface {
 		Port() int
+		Start() error
+		Stop()
 	}
 
 	// Components AFAIRE.
