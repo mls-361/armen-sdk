@@ -64,6 +64,7 @@ type (
 
 	// Router AFAIRE.
 	Router interface {
+		ServeHTTP(rw http.ResponseWriter, r *http.Request)
 		Get(path string, handler http.HandlerFunc)
 		Post(path string, handler http.HandlerFunc)
 	}
