@@ -8,6 +8,7 @@ package components
 
 import (
 	"log"
+	"net/http"
 	"time"
 
 	"github.com/mls-361/datamap"
@@ -61,6 +62,17 @@ type (
 		NewStdLogger(level, prefix string, flag int) *log.Logger
 	}
 
+	// Router AFAIRE.
+	Router interface {
+		Get(path string, handler http.HandlerFunc)
+		Post(path string, handler http.HandlerFunc)
+	}
+
+	// Server AFAIRE.
+	Server interface {
+		Port() int
+	}
+
 	// Components AFAIRE.
 	Components struct {
 		Application Application
@@ -68,6 +80,8 @@ type (
 		Config      Config
 		Crypto      Crypto
 		Logger      Logger
+		Router      Router
+		Server      Server
 	}
 )
 
