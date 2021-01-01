@@ -47,6 +47,11 @@ type (
 		DecryptString(s string) (string, error)
 	}
 
+	// Leader AFAIRE.
+	Leader interface {
+		AmITheLeader() bool
+	}
+
 	// Logger AFAIRE.
 	Logger interface {
 		Trace(msg string, data ...interface{})
@@ -60,6 +65,12 @@ type (
 		CreateLogger(id, name string) *logger.Logger // BOF?
 		RemoveLogger(id string)
 		NewStdLogger(level, prefix string, flag int) *log.Logger
+	}
+
+	// Model AFAIRE.
+	Model interface {
+		AcquireLock(name, owner string, duration time.Duration) (bool, error)
+		ReleaseLock(name, owner string) error
 	}
 
 	// Router AFAIRE.
@@ -80,7 +91,9 @@ type (
 		Bus         Bus
 		Config      Config
 		Crypto      Crypto
+		Leader      Leader
 		Logger      Logger
+		Model       Model
 		Router      Router
 		Server      Server
 	}
