@@ -89,6 +89,12 @@ type (
 		Post(path string, handler http.HandlerFunc)
 	}
 
+	// Scheduler AFAIRE.
+	Scheduler interface {
+		Start()
+		Stop()
+	}
+
 	// Server AFAIRE.
 	Server interface {
 		Port() int
@@ -107,6 +113,7 @@ type (
 		Logger      Logger
 		Model       Model
 		Router      Router
+		Scheduler   Scheduler
 		Server      Server
 	}
 )
