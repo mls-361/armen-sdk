@@ -25,8 +25,9 @@ type (
 		Version() string
 		BuiltAt() time.Time
 		StartedAt() time.Time
-		Host() string
+		LookupEnv(suffix string) (string, bool)
 		Devel() int
+		Host() string
 	}
 
 	// Backend AFAIRE.
