@@ -29,6 +29,12 @@ type (
 		Devel() int
 	}
 
+	// Backend AFAIRE.
+	Backend interface {
+		AcquireLock(name, owner string, duration time.Duration) (bool, error)
+		ReleaseLock(name, owner string) error
+	}
+
 	// Bus AFAIRE.
 	Bus interface {
 		AddPublisher(name string, chCapacity, nbConsumer int) chan<- *message.Message
