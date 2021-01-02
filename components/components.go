@@ -57,6 +57,8 @@ type (
 	// Leader AFAIRE.
 	Leader interface {
 		AmITheLeader() bool
+		Start()
+		Stop()
 	}
 
 	// Logger AFAIRE.
