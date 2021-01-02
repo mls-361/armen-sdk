@@ -96,6 +96,7 @@ type (
 	// Components AFAIRE.
 	Components struct {
 		Application Application
+		Backend     Backend
 		Bus         Bus
 		Config      Config
 		Crypto      Crypto
