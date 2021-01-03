@@ -26,7 +26,7 @@ type (
 		BuiltAt() time.Time
 		StartedAt() time.Time
 		LookupEnv(suffix string) (string, bool)
-		Devel() int
+		Debug() int
 		Host() string
 	}
 
