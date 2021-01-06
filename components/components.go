@@ -12,12 +12,18 @@ import (
 	"time"
 
 	"github.com/mls-361/datamap"
+	"github.com/mls-361/failure"
 	"github.com/mls-361/logger"
 
 	"github.com/mls-361/armen-sdk/message"
 )
 
 type (
+	// Component AFAIRE.
+	Component interface {
+		Name() string
+	}
+
 	// Application AFAIRE.
 	Application interface {
 		ID() string
@@ -115,12 +121,49 @@ type (
 		Router      Router
 		Scheduler   Scheduler
 		Server      Server
+		unknown     map[string]Component
+	}
+
+	// Plugin AFAIRE.
+	Plugin interface {
+		ID() string
+		Name() string
+		Version() string
+		BuiltAt() time.Time
 	}
 )
 
 // New AFAIRE.
 func New() *Components {
-	return &Components{}
+	return &Components{
+		unknown: make(map[string]Component),
+	}
+}
+
+// Add AFAIRE.
+func (cs *Components) Add(c Component) error {
+	_, ok := cs.unknown[c.Name()]
+	if ok {
+		return failure.New(nil).
+			Set("name", c.Name()).
+			Msg("a component with this name already exists") ///////////////////////////////////////////////////////////
+	}
+
+	cs.unknown[c.Name()] = c
+
+	return nil
+}
+
+// Get AFAIRE.
+func (cs *Components) Get(name string) (interface{}, error) {
+	c, ok := cs.unknown[name]
+	if !ok {
+		return nil, failure.New(nil).
+			Set("name", name).
+			Msg("no component with this name exists") //////////////////////////////////////////////////////////////////
+	}
+
+	return c, nil
 }
 
 /*
