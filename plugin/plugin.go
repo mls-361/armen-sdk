@@ -36,11 +36,12 @@ func New(name, version, builtAt string, components *components.Components) *Plug
 	}
 
 	plugin := &Plugin{
-		Base:    minikit.NewBase(name, "plugin."+name),
-		id:      uuid.New(),
-		name:    name,
-		version: version,
-		builtAt: time.Unix(ts, 0),
+		Base:       minikit.NewBase(name, "plugin."+name),
+		id:         uuid.New(),
+		name:       name,
+		version:    version,
+		builtAt:    time.Unix(ts, 0),
+		components: components,
 	}
 
 	// Pour les besoins de l'application.
@@ -57,7 +58,7 @@ func (cp *Plugin) Dependencies() []string {
 }
 
 // Build AFAIRE.
-func (cp *Plugin) Build(m *minikit.Manager) error {
+func (cp *Plugin) Build(_ *minikit.Manager) error {
 	cp.components.Logger.Info( //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 		"Plugin",
 		"name", cp.name,
