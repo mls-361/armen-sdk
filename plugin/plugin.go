@@ -12,8 +12,6 @@ import (
 
 	"github.com/mls-361/minikit"
 	"github.com/mls-361/uuid"
-
-	"github.com/mls-361/armen-sdk/components"
 )
 
 type (
@@ -24,14 +22,11 @@ type (
 		name    string
 		version string
 		builtAt time.Time
-		logger  components.Logger
 	}
 )
 
 // New AFAIRE.
-func New(logger components.Logger, name, version, builtAt string) *Plugin {
-	id := uuid.New()
-
+func New(name, version, builtAt string) *Plugin {
 	ts, err := strconv.ParseInt(builtAt, 0, 64)
 	if err != nil {
 		ts = 0
@@ -39,11 +34,10 @@ func New(logger components.Logger, name, version, builtAt string) *Plugin {
 
 	return &Plugin{
 		Base:    minikit.NewBase(name, "plugin."+name),
-		id:      id,
+		id:      uuid.New(),
 		name:    name,
 		version: version,
 		builtAt: time.Unix(ts, 0),
-		logger:  logger.CreateLogger(id, name),
 	}
 }
 
@@ -65,11 +59,6 @@ func (cp *Plugin) Version() string {
 // BuiltAt AFAIRE.
 func (cp *Plugin) BuiltAt() time.Time {
 	return cp.builtAt
-}
-
-// Logger AFAIRE.
-func (cp *Plugin) Logger() components.Logger {
-	return cp.logger
 }
 
 /*
