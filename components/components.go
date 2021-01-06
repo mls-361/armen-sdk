@@ -12,7 +12,6 @@ import (
 	"time"
 
 	"github.com/mls-361/datamap"
-	"github.com/mls-361/failure"
 	"github.com/mls-361/logger"
 
 	"github.com/mls-361/armen-sdk/message"
@@ -121,7 +120,7 @@ type (
 		Router      Router
 		Scheduler   Scheduler
 		Server      Server
-		unknown     map[string]Component
+		unknown     []Component
 	}
 
 	// Plugin AFAIRE.
@@ -136,34 +135,13 @@ type (
 // New AFAIRE.
 func New() *Components {
 	return &Components{
-		unknown: make(map[string]Component),
+		unknown: make([]Component, 0),
 	}
 }
 
 // Add AFAIRE.
-func (cs *Components) Add(c Component) error {
-	_, ok := cs.unknown[c.Name()]
-	if ok {
-		return failure.New(nil).
-			Set("name", c.Name()).
-			Msg("a component with this name already exists") ///////////////////////////////////////////////////////////
-	}
-
-	cs.unknown[c.Name()] = c
-
-	return nil
-}
-
-// Get AFAIRE.
-func (cs *Components) Get(name string) (interface{}, error) {
-	c, ok := cs.unknown[name]
-	if !ok {
-		return nil, failure.New(nil).
-			Set("name", name).
-			Msg("no component with this name exists") //////////////////////////////////////////////////////////////////
-	}
-
-	return c, nil
+func (cs *Components) Add(c Component) {
+	cs.unknown = append(cs.unknown, c)
 }
 
 /*
