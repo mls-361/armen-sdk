@@ -12,33 +12,60 @@ import (
 
 	"github.com/mls-361/minikit"
 	"github.com/mls-361/uuid"
+
+	"github.com/mls-361/armen-sdk/components"
 )
 
 type (
 	// Plugin AFAIRE.
 	Plugin struct {
 		*minikit.Base
-		id      string
-		name    string
-		version string
-		builtAt time.Time
+		id         string
+		name       string
+		version    string
+		builtAt    time.Time
+		components *components.Components
 	}
 )
 
 // New AFAIRE.
-func New(name, version, builtAt string) *Plugin {
+func New(name, version, builtAt string, components *components.Components) *Plugin {
 	ts, err := strconv.ParseInt(builtAt, 0, 64)
 	if err != nil {
 		ts = 0
 	}
 
-	return &Plugin{
+	plugin := &Plugin{
 		Base:    minikit.NewBase(name, "plugin."+name),
 		id:      uuid.New(),
 		name:    name,
 		version: version,
 		builtAt: time.Unix(ts, 0),
 	}
+
+	// Pour les besoins de l'application.
+	components.Add(plugin)
+
+	return plugin
+}
+
+// Dependencies AFAIRE.
+func (cp *Plugin) Dependencies() []string {
+	return []string{
+		"logger",
+	}
+}
+
+// Build AFAIRE.
+func (cp *Plugin) Build(m *minikit.Manager) error {
+	cp.components.Logger.Info( //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+		"Plugin",
+		"name", cp.name,
+		"version", cp.version,
+		"builtAt", cp.builtAt.String(),
+	)
+
+	return nil
 }
 
 // ID AFAIRE.
