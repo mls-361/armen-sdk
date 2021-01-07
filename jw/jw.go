@@ -85,8 +85,8 @@ type (
 	}
 )
 
-// New AFAIRE.
-func New(id, n, ns, t, o string, p Priority, e Exclusivity, uk, em *string) *Job {
+// NewJob AFAIRE.
+func NewJob(id, n, ns, t, o string, p Priority, e Exclusivity, uk, em *string) *Job {
 	now := time.Now()
 
 	return &Job{
