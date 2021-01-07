@@ -14,6 +14,7 @@ import (
 	"github.com/mls-361/datamap"
 	"github.com/mls-361/logger"
 
+	"github.com/mls-361/armen-sdk/jw"
 	"github.com/mls-361/armen-sdk/message"
 )
 
@@ -39,6 +40,7 @@ type (
 	Backend interface {
 		AcquireLock(name, owner string, duration time.Duration) (bool, error)
 		ReleaseLock(name, owner string) error
+		InsertJob(job *jw.Job) (bool, error)
 	}
 
 	// Bus AFAIRE.
@@ -85,6 +87,7 @@ type (
 	Model interface {
 		AcquireLock(name, owner string, duration time.Duration) (bool, error)
 		ReleaseLock(name, owner string) error
+		InsertJob(job *jw.Job) error
 	}
 
 	// Router AFAIRE.
