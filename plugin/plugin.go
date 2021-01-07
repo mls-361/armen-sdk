@@ -36,7 +36,7 @@ func New(name, version, builtAt string, components *components.Components) *Plug
 	}
 
 	plugin := &Plugin{
-		Base:       minikit.NewBase(name, "plugin."+name),
+		Base:       minikit.NewBase("plugin."+name, "plugin."+name),
 		id:         uuid.New(),
 		name:       name,
 		version:    version,
