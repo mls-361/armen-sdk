@@ -111,6 +111,12 @@ type (
 		Stop()
 	}
 
+	// Workers AFAIRE.
+	Workers interface {
+		Start()
+		Stop()
+	}
+
 	// Components AFAIRE.
 	Components struct {
 		Application Application
@@ -124,6 +130,7 @@ type (
 		Router      Router
 		Scheduler   Scheduler
 		Server      Server
+		Workers     Workers
 		unknown     []Component
 	}
 
