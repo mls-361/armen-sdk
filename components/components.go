@@ -85,7 +85,7 @@ type (
 
 	// Metrics AFAIRE.
 	Metrics interface {
-		Set(value interface{}, keys ...string)
+		Add(delta int64, keys ...string)
 	}
 
 	// Model AFAIRE.
