@@ -83,6 +83,11 @@ type (
 		NewStdLogger(level, prefix string, flag int) *log.Logger
 	}
 
+	// Metrics AFAIRE.
+	Metrics interface {
+		Set(value interface{}, keys ...string)
+	}
+
 	// Model AFAIRE.
 	Model interface {
 		AcquireLock(name, owner string, duration time.Duration) (bool, error)
@@ -126,6 +131,7 @@ type (
 		Crypto      Crypto
 		Leader      Leader
 		Logger      Logger
+		Metrics     Metrics
 		Model       Model
 		Router      Router
 		Scheduler   Scheduler
