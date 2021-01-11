@@ -13,6 +13,7 @@ import (
 
 	"github.com/mls-361/datamap"
 	"github.com/mls-361/logger"
+	"github.com/mls-361/metrics"
 
 	"github.com/mls-361/armen-sdk/jw"
 	"github.com/mls-361/armen-sdk/message"
@@ -85,8 +86,8 @@ type (
 
 	// Metrics AFAIRE.
 	Metrics interface {
-		AddInt(value int64, keys ...string)
-		SetInt(value int64, keys ...string)
+		Register(id string, metric interface{})
+		NewCounter(id string) metrics.Counter
 	}
 
 	// Model AFAIRE.
