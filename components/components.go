@@ -88,6 +88,8 @@ type (
 	Metrics interface {
 		Register(id string, metric interface{})
 		NewCounter(id string) metrics.Counter
+		NewGaugeFloat(id string) metrics.GaugeFloat
+		NewGaugeInt(id string) metrics.GaugeInt
 	}
 
 	// Model AFAIRE.

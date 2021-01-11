@@ -8,8 +8,8 @@ github.com/mls-361/logfmt v0.0.0-20210103213624-dfce4a07a454 h1:jnBIBFsUZskioh57
 github.com/mls-361/logfmt v0.0.0-20210103213624-dfce4a07a454/go.mod h1:qBYtM0w3GM8BleORllSY/szCdDY1Qst6f32oumitrQs=
 github.com/mls-361/logger v0.0.0-20210103214222-796b123fd379 h1:fKMVsLJj+oJWxCncj3br/Ek/Tak1SAsO6hvm4ZDlHLU=
 github.com/mls-361/logger v0.0.0-20210103214222-796b123fd379/go.mod h1:JGD8K3v0sSvCozN2Rqz7annI18+SQ41OH8IELUk6Tus=
-github.com/mls-361/metrics v0.0.0-20210111113447-4178b6ec8702 h1:P3qYP8f6xKx8CBJkpNaOs/lbJdwIzzMbiOJTi6BLLo0=
-github.com/mls-361/metrics v0.0.0-20210111113447-4178b6ec8702/go.mod h1:5Y4ckyelXDC6QO6ykJBaGUs32AA/WrYGcdDOJ9FtenQ=
+github.com/mls-361/metrics v0.0.0-20210111180640-b5c403ec9bd7 h1:S7Wpab1K6XkpezJF3RLYgiXLHx6hor0qR4YaojUivCA=
+github.com/mls-361/metrics v0.0.0-20210111180640-b5c403ec9bd7/go.mod h1:5Y4ckyelXDC6QO6ykJBaGUs32AA/WrYGcdDOJ9FtenQ=
 github.com/mls-361/minikit v0.0.0-20210107180150-28817c294bb9 h1:0bOyMiWo3k/IBQmFXIAhpHpiMt11La58XCQorcaMgNo=
 github.com/mls-361/minikit v0.0.0-20210107180150-28817c294bb9/go.mod h1:V+CaZ8dMQScqWIB0J/47IoQhtF5AFJ6MLFHERyQXRos=
 github.com/mls-361/uuid v0.0.0-20210103213509-f52b091b96f3 h1:AZahXz9O0+Wc0BlyZ3JUESgMNAs58RHBHzs2O2yb9No=
