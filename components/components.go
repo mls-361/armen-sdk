@@ -13,7 +13,6 @@ import (
 
 	"github.com/mls-361/datamap"
 	"github.com/mls-361/logger"
-	"github.com/mls-361/metrics"
 
 	"github.com/mls-361/armen-sdk/jw"
 	"github.com/mls-361/armen-sdk/message"
@@ -37,13 +36,6 @@ type (
 		Host() string
 	}
 
-	// Backend AFAIRE.
-	Backend interface {
-		AcquireLock(name, owner string, duration time.Duration) (bool, error)
-		ReleaseLock(name, owner string) error
-		InsertJob(job *jw.Job) (bool, error)
-	}
-
 	// Bus AFAIRE.
 	Bus interface {
 		AddPublisher(name string, chCapacity, nbConsumer int) chan<- *message.Message
@@ -65,8 +57,6 @@ type (
 	// Leader AFAIRE.
 	Leader interface {
 		AmITheLeader() bool
-		Start()
-		Stop()
 	}
 
 	// Logger AFAIRE.
@@ -84,64 +74,30 @@ type (
 		NewStdLogger(level, prefix string, flag int) *log.Logger
 	}
 
-	// Metrics AFAIRE.
-	Metrics interface {
-		Register(id string, metric interface{})
-		NewCounter(id string) metrics.Counter
-		NewGaugeFloat(id string) metrics.GaugeFloat
-		NewGaugeInt(id string) metrics.GaugeInt
-	}
-
 	// Model AFAIRE.
 	Model interface {
 		AcquireLock(name, owner string, duration time.Duration) (bool, error)
 		ReleaseLock(name, owner string) error
 		InsertJob(job *jw.Job) error
-		NextJob() *jw.Job
 	}
 
 	// Router AFAIRE.
 	Router interface {
-		Handler() http.Handler
 		Get(path string, handler http.HandlerFunc)
 		Post(path string, handler http.HandlerFunc)
 	}
 
-	// Scheduler AFAIRE.
-	Scheduler interface {
-		Start()
-		Stop()
-	}
-
-	// Server AFAIRE.
-	Server interface {
-		Port() int
-		Start() error
-		Stop()
-	}
-
-	// Workers AFAIRE.
-	Workers interface {
-		Start()
-		Stop()
-	}
-
 	// Components AFAIRE.
-	Components struct {
-		Application Application
-		Backend     Backend
-		Bus         Bus
-		Config      Config
-		Crypto      Crypto
-		Leader      Leader
-		Logger      Logger
-		Metrics     Metrics
-		Model       Model
-		Router      Router
-		Scheduler   Scheduler
-		Server      Server
-		Workers     Workers
-		unknown     []Component
+	Components interface {
+		Application() Application
+		Bus() Bus
+		Config() Config
+		Crypto() Crypto
+		Leader() Leader
+		Logger() Logger
+		Model() Model
+		Router() Router
+		Add(c Component)
 	}
 
 	// Plugin AFAIRE.
@@ -152,18 +108,6 @@ type (
 		BuiltAt() time.Time
 	}
 )
-
-// New AFAIRE.
-func New() *Components {
-	return &Components{
-		unknown: make([]Component, 0),
-	}
-}
-
-// Add AFAIRE.
-func (cs *Components) Add(c Component) {
-	cs.unknown = append(cs.unknown, c)
-}
 
 /*
 ######################################################################################################## @(°_°)@ #######

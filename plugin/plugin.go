@@ -24,12 +24,12 @@ type (
 		name       string
 		version    string
 		builtAt    time.Time
-		components *components.Components
+		components components.Components
 	}
 )
 
 // New AFAIRE.
-func New(name, version, builtAt string, components *components.Components) *Plugin {
+func New(name, version, builtAt string, components components.Components) *Plugin {
 	ts, err := strconv.ParseInt(builtAt, 0, 64)
 	if err != nil {
 		ts = 0
@@ -59,7 +59,7 @@ func (cp *Plugin) Dependencies() []string {
 
 // Build AFAIRE.
 func (cp *Plugin) Build(_ *minikit.Manager) error {
-	cp.components.Logger.Info( //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	cp.components.Logger().Info( //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 		"Plugin",
 		"name", cp.name,
 		"version", cp.version,
