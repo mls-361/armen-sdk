@@ -31,13 +31,6 @@ const (
 	// PriorityHigh AFAIRE.
 	PriorityHigh Priority = 80
 
-	// NoExclusivity AFAIRE.
-	NoExclusivity Exclusivity = "no"
-	// ExclusiveWithItself AFAIRE.
-	ExclusiveWithItself Exclusivity = "itself"
-	// ApplicationLevelExclusivity AFAIRE.
-	ApplicationLevelExclusivity Exclusivity = "application"
-
 	// StatusToDo AFAIRE.
 	StatusToDo Status = "todo"
 	// StatusRunning AFAIRE.
@@ -59,22 +52,22 @@ type (
 		Type           string
 		Origin         string
 		Priority       Priority
-		Exclusivity    Exclusivity
-		UniqueKey      *string
+		Key            *string
+		Workflow       *string
+		WorkflowFailed *bool
 		Emails         *string
 		Config         datamap.DataMap
 		Data           datamap.DataMap
-		Workflow       *string
-		WorkflowFailed *bool
 		CreatedAt      time.Time
-		TimeReference  time.Time
 		Status         Status
 		Error          *string
 		Attempts       int
+		FinishedAt     *time.Time
 		RunAfter       time.Time
 		Result         *string
 		NextStep       *string
-		FinishedAt     *time.Time
+		TimeReference  time.Time
+		Weight         int
 	}
 
 	// Result AFAIRE.
@@ -86,25 +79,24 @@ type (
 )
 
 // NewJob AFAIRE.
-func NewJob(id, n, ns, t, o string, p Priority, e Exclusivity, uk, em *string) *Job {
+func NewJob(id, name, namespace, _type, origin string, priority Priority, key, emails *string) *Job {
 	now := time.Now()
 
 	return &Job{
 		ID:            id,
-		Name:          n,
-		Namespace:     ns,
-		Type:          t,
-		Origin:        o,
-		Priority:      p,
-		Exclusivity:   e,
-		UniqueKey:     uk,
-		Emails:        em,
+		Name:          name,
+		Namespace:     namespace,
+		Type:          _type,
+		Origin:        origin,
+		Priority:      priority,
+		Key:           key,
+		Emails:        emails,
 		Config:        make(datamap.DataMap),
 		Data:          make(datamap.DataMap),
 		CreatedAt:     now,
-		TimeReference: now,
 		Status:        StatusToDo,
 		RunAfter:      now,
+		TimeReference: now,
 	}
 }
 
