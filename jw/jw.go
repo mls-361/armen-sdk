@@ -66,8 +66,8 @@ type (
 		RunAfter       time.Time
 		Result         *string
 		NextStep       *string
-		TimeReference  time.Time
 		Weight         int
+		TimeReference  time.Time
 	}
 
 	// Result AFAIRE.
