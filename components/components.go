@@ -86,7 +86,6 @@ type (
 		Logger() Logger
 		Model() Model
 		Router() Router
-		Add(c Component)
 	}
 
 	// Plugin AFAIRE.

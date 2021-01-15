@@ -35,7 +35,7 @@ func New(name, version, builtAt string, components components.Components) *Plugi
 		ts = 0
 	}
 
-	plugin := &Plugin{
+	return &Plugin{
 		Base:       minikit.NewBase("plugin."+name, "plugin."+name),
 		id:         uuid.New(),
 		name:       name,
@@ -43,11 +43,6 @@ func New(name, version, builtAt string, components components.Components) *Plugi
 		builtAt:    time.Unix(ts, 0),
 		components: components,
 	}
-
-	// Pour les besoins de l'application.
-	components.Add(plugin)
-
-	return plugin
 }
 
 // Dependencies AFAIRE.
