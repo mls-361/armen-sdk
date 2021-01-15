@@ -58,11 +58,6 @@ type (
 		AmITheLeader() bool
 	}
 
-	// Logger AFAIRE.
-	Logger interface {
-		logger.Logger
-	}
-
 	// Model AFAIRE.
 	Model interface {
 		AcquireLock(name, owner string, duration time.Duration) (bool, error)
@@ -83,7 +78,7 @@ type (
 		Config() Config
 		Crypto() Crypto
 		Leader() Leader
-		Logger() Logger
+		Logger() logger.Logger
 		Model() Model
 		Router() Router
 	}
