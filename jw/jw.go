@@ -10,6 +10,8 @@ import (
 	"time"
 
 	"github.com/mls-361/datamap"
+
+	"github.com/mls-361/armen-sdk/logger"
 )
 
 type (
@@ -75,6 +77,11 @@ type (
 		Status   Status
 		Err      error
 		Duration time.Duration
+	}
+
+	// Runner AFAIRE.
+	Runner interface {
+		RunJob(job *Job, logger logger.Logger) *Result
 	}
 )
 

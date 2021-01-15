@@ -7,14 +7,13 @@
 package components
 
 import (
-	"log"
 	"net/http"
 	"time"
 
 	"github.com/mls-361/datamap"
-	"github.com/mls-361/logger"
 
 	"github.com/mls-361/armen-sdk/jw"
+	"github.com/mls-361/armen-sdk/logger"
 	"github.com/mls-361/armen-sdk/message"
 )
 
@@ -61,17 +60,7 @@ type (
 
 	// Logger AFAIRE.
 	Logger interface {
-		Trace(msg string, data ...interface{})
-		Debug(msg string, data ...interface{})
-		Info(msg string, data ...interface{})
-		Notice(msg string, data ...interface{})
-		Warning(msg string, data ...interface{})
-		Error(msg string, data ...interface{})
-		Fatal(msg string, data ...interface{})
-		SetLevel(level string)
-		CreateLogger(id, name string) *logger.Logger // BOF?
-		RemoveLogger(id string)
-		NewStdLogger(level, prefix string, flag int) *log.Logger
+		logger.Logger
 	}
 
 	// Model AFAIRE.
