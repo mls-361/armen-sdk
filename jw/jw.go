@@ -130,6 +130,32 @@ func Pending(err error, duration time.Duration) *Result {
 	return newResult(StatusPending, err, duration)
 }
 
+type (
+	// Step AFAIRE.
+	Step struct {
+		Namespace string
+		Type      string
+		Config    datamap.DataMap
+		Next      datamap.DataMap
+	}
+
+	// Workflow AFAIRE.
+	Workflow struct {
+		ID                string
+		ExternalReference *string
+		Description       string
+		Origin            string
+		Priority          Priority
+		FirstStep         string
+		AllSteps          map[string]*Step
+		Emails            *string
+		Data              datamap.DataMap
+		CreatedAt         time.Time
+		Status            Status
+		FinishedAt        *time.Time
+	}
+)
+
 /*
 ######################################################################################################## @(°_°)@ #######
 */

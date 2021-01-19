@@ -63,6 +63,8 @@ type (
 		AcquireLock(name, owner string, duration time.Duration) (bool, error)
 		ReleaseLock(name, owner string) error
 		InsertJob(job *jw.Job) error
+		UpdateJob(job *jw.Job)
+		InsertWorkflow(wf *jw.Workflow) error
 	}
 
 	// Router AFAIRE.
