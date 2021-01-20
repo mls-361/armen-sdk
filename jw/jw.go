@@ -156,6 +156,24 @@ type (
 	}
 )
 
+// NewWorkflow AFAIRE.
+func NewWorkflow(id string, externalRef *string, desc, origin string, priority Priority, fStep string,
+	aSteps map[string]*Step, emails *string) *Workflow {
+	return &Workflow{
+		ID:                id,
+		ExternalReference: externalRef,
+		Description:       desc,
+		Origin:            origin,
+		Priority:          priority,
+		FirstStep:         fStep,
+		AllSteps:          aSteps,
+		Emails:            emails,
+		Data:              make(datamap.DataMap),
+		CreatedAt:         time.Now(),
+		Status:            StatusRunning,
+	}
+}
+
 /*
 ######################################################################################################## @(°_°)@ #######
 */
