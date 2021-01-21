@@ -48,30 +48,29 @@ const (
 type (
 	// Job AFAIRE.
 	Job struct {
-		ID                string
-		Name              string
-		Namespace         string
-		Type              string
-		Origin            string
-		Priority          Priority
-		Key               *string
-		Workflow          *string
-		WorkflowFailed    *bool
-		Emails            *string
-		Config            datamap.DataMap
-		Private           datamap.DataMap
-		Public            datamap.DataMap
-		CreatedAt         time.Time
-		Status            Status
-		Error             *string
-		Attempts          int
-		FinishedAt        *time.Time
-		ExternalReference *string
-		RunAfter          time.Time
-		Result            *string
-		NextStep          *string
-		Weight            int
-		TimeReference     time.Time
+		ID             string
+		Name           string
+		Namespace      string
+		Type           string
+		Origin         string
+		Priority       Priority
+		Key            *string
+		Workflow       *string
+		WorkflowFailed *bool
+		Emails         *string
+		Config         datamap.DataMap
+		Private        datamap.DataMap
+		Public         datamap.DataMap
+		CreatedAt      time.Time
+		Status         Status
+		Error          *string
+		Attempts       int
+		FinishedAt     *time.Time
+		RunAfter       time.Time
+		Result         *string
+		NextStep       *string
+		Weight         int
+		TimeReference  time.Time
 	}
 
 	// Result AFAIRE.
@@ -101,7 +100,6 @@ func NewJob(id, name, namespace, _type, origin string, priority Priority, key *s
 		Key:           key,
 		CreatedAt:     now,
 		Status:        StatusToDo,
-		RunAfter:      now,
 		TimeReference: now,
 	}
 }
