@@ -68,7 +68,6 @@ type (
 		FinishedAt     *time.Time
 		RunAfter       time.Time
 		Result         *string
-		NextStep       *string
 		Weight         int
 		TimeReference  time.Time
 	}
