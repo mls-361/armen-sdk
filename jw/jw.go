@@ -17,11 +17,12 @@ import (
 type (
 	// Priority AFAIRE.
 	Priority int
-	// Exclusivity AFAIRE.
-	Exclusivity string
 	// Status AFAIRE.
 	Status string
 )
+
+// String AFAIRE.
+func (s Status) String() string { return string(s) }
 
 const (
 	// NoPriority AFAIRE.
