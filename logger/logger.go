@@ -24,7 +24,7 @@ type (
 		Fatal(msg string, data ...interface{})
 		SetLevel(level string)
 		CreateLogger(id, name string) *logger.Logger // BOF?
-		RemoveLogger(id string)
+		Remove()
 		NewStdLogger(level, prefix string, flag int) *log.Logger
 	}
 )
