@@ -101,6 +101,7 @@ func NewJob(id, name, namespace, _type, origin string, priority Priority, key *s
 		Key:           key,
 		CreatedAt:     now,
 		Status:        StatusToDo,
+		RunAfter:      now,
 		TimeReference: now,
 	}
 }
