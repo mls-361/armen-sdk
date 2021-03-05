@@ -9,8 +9,6 @@ package jw
 import (
 	"time"
 
-	"github.com/mls-361/datamap"
-
 	"github.com/mls-361/armen-sdk/logger"
 )
 
@@ -59,9 +57,9 @@ type (
 		Workflow       *string
 		WorkflowFailed *bool
 		Emails         *string
-		Config         datamap.DataMap
-		Private        datamap.DataMap
-		Public         datamap.DataMap
+		Config         map[string]interface{}
+		Private        map[string]interface{}
+		Public         map[string]interface{}
 		CreatedAt      time.Time
 		Status         Status
 		Error          *string
@@ -134,8 +132,8 @@ type (
 	Step struct {
 		Namespace string
 		Type      string
-		Config    datamap.DataMap
-		Next      datamap.DataMap
+		Config    map[string]interface{}
+		Next      map[string]interface{}
 	}
 
 	// Workflow AFAIRE.
@@ -148,7 +146,7 @@ type (
 		AllSteps          map[string]*Step
 		ExternalReference *string
 		Emails            *string
-		Data              datamap.DataMap
+		Data              map[string]interface{}
 		CreatedAt         time.Time
 		Status            Status
 		FinishedAt        *time.Time
@@ -156,7 +154,7 @@ type (
 )
 
 // NewStep AFAIRE.
-func NewStep(namespace, _type string, config, next datamap.DataMap) *Step {
+func NewStep(namespace, _type string, config, next map[string]interface{}) *Step {
 	return &Step{
 		Namespace: namespace,
 		Type:      _type,
