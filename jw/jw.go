@@ -139,6 +139,7 @@ type (
 	// Workflow AFAIRE.
 	Workflow struct {
 		ID                string
+		Type              string
 		Description       string
 		Origin            string
 		Priority          Priority
@@ -164,9 +165,10 @@ func NewStep(namespace, _type string, config, next map[string]interface{}) *Step
 }
 
 // NewWorkflow AFAIRE.
-func NewWorkflow(id string, desc, origin string, priority Priority, fStep string, aSteps map[string]*Step) *Workflow {
+func NewWorkflow(id, _type, desc, origin string, priority Priority, fStep string, aSteps map[string]*Step) *Workflow {
 	return &Workflow{
 		ID:          id,
+		Type:        _type,
 		Description: desc,
 		Origin:      origin,
 		Priority:    priority,
