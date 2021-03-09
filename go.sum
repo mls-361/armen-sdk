@@ -6,8 +6,8 @@ github.com/mls-361/failure v0.0.0-20210214150656-bf33513ce561 h1:KMNRnoFBAQT3GAC
 github.com/mls-361/failure v0.0.0-20210214150656-bf33513ce561/go.mod h1:BWQr6RZOwoWz8xbSaQ/UDhncmL+diACBTHa1CEYLfSA=
 github.com/mls-361/logfmt v0.0.0-20210214150102-dc79140262f2 h1:Zt6lQ5jFV60/7KuP2zqgI1kCOhXsoUmwfANYR/5vtTM=
 github.com/mls-361/logfmt v0.0.0-20210214150102-dc79140262f2/go.mod h1:DKp8pWoA93y8WBQiSR0KDpNsE2rAioxfQNL+rLcKslU=
-github.com/mls-361/logger v0.0.0-20210309090927-4beb5f07ee1e h1:5JD3dVBYBr+I5T8hdO5s+h1h02TE3onnir933mu6Ch4=
-github.com/mls-361/logger v0.0.0-20210309090927-4beb5f07ee1e/go.mod h1:O6F5h4lQmMgCunbbXYNxYoQXdjc7lPQKKN0NlB8NToo=
+github.com/mls-361/logger v0.0.0-20210309094146-fcd3b273b1f1 h1:eg5+J2tYf8YbZ1WttL5ctGsf0xR/dXULqW0h/erpQ/g=
+github.com/mls-361/logger v0.0.0-20210309094146-fcd3b273b1f1/go.mod h1:O6F5h4lQmMgCunbbXYNxYoQXdjc7lPQKKN0NlB8NToo=
 github.com/mls-361/minikit v0.0.0-20210308181221-313f5b950015 h1:Qs8kkhE9TzTlHjcq4n/JFdogvMYhuCN9xZ2aXijX+go=
 github.com/mls-361/minikit v0.0.0-20210308181221-313f5b950015/go.mod h1:UsCd8YWgxJjBSy30V5BNLjZKIvtGnstOpxcHxe/BA88=
 github.com/mls-361/uuid v0.0.0-20210103213509-f52b091b96f3 h1:AZahXz9O0+Wc0BlyZ3JUESgMNAs58RHBHzs2O2yb9No=
