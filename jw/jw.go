@@ -9,7 +9,7 @@ package jw
 import (
 	"time"
 
-	"github.com/mls-361/armen-sdk/logger"
+	"github.com/mls-361/logger"
 )
 
 type (
