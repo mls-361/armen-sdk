@@ -69,8 +69,8 @@ type (
 
 	// Router AFAIRE.
 	Router interface {
-		Get(path string, handler http.HandlerFunc)
-		Post(path string, handler http.HandlerFunc)
+		Get(path string, handler http.Handler)
+		Post(path string, handler http.Handler)
 	}
 
 	// Components AFAIRE.
