@@ -54,12 +54,12 @@ type (
 
 	// JobCore AFAIRE.
 	JobCore struct {
-		Name     string                 `json:"Name"`
-		Namepace string                 `json:"Namespace"`
-		Type     string                 `json:"type"`
-		Priority string                 `json:"priority"`
-		Key      string                 `json:"key"`
-		Data     map[string]interface{} `json:"data"`
+		Name      string                 `json:"Name"`
+		Namespace string                 `json:"Namespace"`
+		Type      string                 `json:"type"`
+		Priority  string                 `json:"priority"`
+		Key       string                 `json:"key"`
+		Data      map[string]interface{} `json:"data"`
 	}
 
 	// Factory AFAIRE.
