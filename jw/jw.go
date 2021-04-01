@@ -12,6 +12,11 @@ import (
 	"github.com/mls-361/failure"
 )
 
+const (
+	// MaxLenJWOrigin AFAIRE.
+	MaxLenJWOrigin = 50
+)
+
 type (
 	// Priority AFAIRE.
 	Priority int

@@ -12,6 +12,11 @@ import (
 	"github.com/mls-361/logger"
 )
 
+const (
+	// MaxLenJobName AFAIRE.
+	MaxLenJobName = 50
+)
+
 type (
 	// Job AFAIRE.
 	Job struct {
@@ -64,7 +69,7 @@ type (
 
 	// Factory AFAIRE.
 	Factory interface {
-		CreateJob(jc *JobCore) (*Job, error)
+		CreateJob(origin string, jc *JobCore) (*Job, error)
 	}
 )
 
