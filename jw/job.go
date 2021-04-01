@@ -64,7 +64,7 @@ type (
 
 	// Factory AFAIRE.
 	Factory interface {
-		CreateJob(jc *JobCore) (string, error)
+		CreateJob(jc *JobCore) (*Job, error)
 	}
 )
 
