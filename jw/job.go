@@ -13,8 +13,8 @@ import (
 )
 
 const (
-	// MaxLenJobName AFAIRE.
-	MaxLenJobName = 50
+	// MaxJobNameLen AFAIRE.
+	MaxJobNameLen = 50
 )
 
 type (

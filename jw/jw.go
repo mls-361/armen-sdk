@@ -13,8 +13,8 @@ import (
 )
 
 const (
-	// MaxLenJWOrigin AFAIRE.
-	MaxLenJWOrigin = 50
+	// MaxJWOriginLen AFAIRE.
+	MaxJWOriginLen = 50
 )
 
 type (
